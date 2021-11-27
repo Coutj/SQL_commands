@@ -1,6 +1,7 @@
 #Structured Query Language (SQL)
 #SQL commands based on postgres RDBMS
 
+#It's a lot easier if you use a GUI client as Adminer or pgAdmin
 
 #Useful data types:
 
@@ -24,5 +25,12 @@
 		column_name_3 DATATYPE,		
 	);
 
+#Adding new columns:
 
+	ALTER TABLE table_name ADD column_name DATATYPE
+
+#Deleting tables:
+
+	DROP TABLE table_name
+	
 
