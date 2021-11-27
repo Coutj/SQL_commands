@@ -1,0 +1,28 @@
+#Structured Query Language (SQL)
+#SQL commands based on postgres RDBMS
+
+
+#Useful data types:
+
+	INT
+	DECIMAL(m,N) 	-- M = total number of digits, N = numbers after decimal point
+	VARCHAR(L) 	-- L = string length (optional parameter)
+	BLOB		-- binary large object
+	DATE		-- 'MM-YYYY-DD'
+	TIMESTAMP	-- 'MM-YYYY-DD HH:MM:SS'
+
+
+#Creating a database:
+
+	CREATE DATABASE db_name;
+
+#Creating tables:
+
+	CREATE TABLE table_name (
+		column_name_1 DATATYPE [PRIMARY KEY],
+		column_name_2 DATATYPE,
+		column_name_3 DATATYPE,		
+	);
+
+
+
