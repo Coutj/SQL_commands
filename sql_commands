@@ -1,9 +1,9 @@
-#Structured Query Language (SQL)
-#SQL commands based on postgres RDBMS
+# Structured Query Language (SQL)
+# SQL commands based on postgres RDBMS
 
-#It's a lot easier if you use a GUI client as Adminer or pgAdmin
+# It's a lot easier if you use a GUI client as Adminer or pgAdmin
 
-#Useful data types:
+# Useful data types:
 
 	INT
 	DECIMAL(m,N) 	-- M = total number of digits, N = numbers after decimal point
@@ -13,24 +13,96 @@
 	TIMESTAMP	-- 'MM-YYYY-DD HH:MM:SS'
 
 
-#Creating a database:
+# CONDITIONS:
+
+	<, >, <=, >=, =, <>, OR, AND
+
+# Creating a database:
 
 	CREATE DATABASE db_name;
 
-#Creating tables:
+# Creating tables:
 
 	CREATE TABLE table_name (
-		column_name_1 DATATYPE [PRIMARY KEY],
-		column_name_2 DATATYPE,
-		column_name_3 DATATYPE,		
+		column_name_1 DATATYPE|SERIAL [PRIMARY KEY],
+		column_name_2 DATATYPE [NOT NULL] [UNIQUE],
+		column_name_3 DATATYPE [DEFAULT VALUE],		
 	);
 
-#Adding new columns:
+# Adding new columns:
 
-	ALTER TABLE table_name ADD column_name DATATYPE
+	ALTER TABLE table_name
+	ADD column_name DATATYPE;
 
-#Deleting tables:
+# Removing columns:
+	
+	ALTER TABLE table_name
+	DROP COLUMN column_name
+
+# Adding new values:
+
+	INSERT INTO table_name VALUES(,,...,);
+	INSERT INTO table_name(column_1, column_2) VALUES(val_1, val_2);
+
+# Deleting tables:
 
 	DROP TABLE table_name
+
+# Update entries:
+
+	UPDATE table_name
+	SET column_name = value
+	WHERE column_name CONDITION value;
+
+	UPDATE table_name
+	SET column_name = value
+	WHERE column_name LIKE '%value%';
+
+	UPDATE table_name
+	SET column_name = REPLACE(column_name, 'val_1', 'val_2')
+	WHERE column_name CONDITION value;
+
+# Delete entries:
+
+	DELETE FROM table_name
+	WHERE column_name CONDITION value;
+
+# Retrieve data:
+
+	SELECT column_1, column_2 FROM table_name;
 	
+	SELECT * FROM table_name;
+
+	SELECT * FROM table_name
+	WHERE column_name CONDITION value;
+
+	SELECT * FROM table_name
+	WHERE column_name IN (value_1, value_2, ...);
+
+	SELECT * FROM table_name
+	ORDER BY column_name_1, column_name_2  [DESC|ASC];
+	
+	SELECT * FROM table_name
+	LIMIT value;
+
+	SELECT DISTINCT column_name FROM table_name;
+
+	SELECT * FROM table_name
+	WHERE column_name LIKE '%LLC'; //% = any number, _ = one character 
+
+	SELECT column_1 FROM table_name
+	UNION
+	SELECT column_2 FROM table_name;
+
+	# Functions:
+
+		SELECT COUNT(column_name) FROM table_name;
+
+		SELECT AVG(column_name) FROM table_name;
+
+		SELECT SUM(column_name) FROM table_name;
+
+		SELECT FUNCTION(column_name) FROM table_name
+		GROUP BY column_name
+
 
