@@ -86,8 +86,8 @@ def populate_data():
     fake = Faker()
 
     supervisors = {
-        'id': [id for id in range(100)],
-        'name': [fake.name() for index in range(100)]
+        'id': [id for id in range(10)],
+        'name': [fake.name() for index in range(10)]
     }
 
     supervisors_df = pd.DataFrame(supervisors)

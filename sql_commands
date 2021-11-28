@@ -88,11 +88,31 @@
 	SELECT DISTINCT column_name FROM table_name;
 
 	SELECT * FROM table_name
-	WHERE column_name LIKE '%LLC'; //% = any number, _ = one character 
+	WHERE column_name LIKE '%LLC'; // % = any number, _ = one character 
 
 	SELECT column_1 FROM table_name
 	UNION
 	SELECT column_2 FROM table_name;
+
+	# Joins:
+
+		// INNER JOIN
+		SELECT table1.column1, table2.column2
+		FROM table1
+		JOIN table2
+		ON table1.columnX = table2.columnX
+
+		// LEFT JOIN
+		SELECT table1.column1, table2.column2
+		FROM table1
+		LEFT JOIN table2
+		ON table1.columnX = table2.columnX
+
+		// RIGHT JOIN
+		SELECT table1.column1, table2.column2
+		FROM table1
+		JOIN table2
+		ON table1.columnX = table2.columnX
 
 	# Functions:
 
@@ -106,3 +126,9 @@
 		GROUP BY column_name
 
 
+	# Nested queries:
+
+	SELECT table1.column_name FROM table1
+	WHERE table1.column_name IN (
+		SELECT table2.column_name FROM table_2
+	)
